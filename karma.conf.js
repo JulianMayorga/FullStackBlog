@@ -1,6 +1,6 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
 
-module.exports = function (config) {
+module.exports = function karmaConf(config) {
   config.set({
 
     browsers: ['PhantomJS'],
@@ -21,11 +21,11 @@ module.exports = function (config) {
     reporters: [ 'mocha' ],
 
     plugins: [
-      require("karma-webpack"),
-      require("karma-mocha"),
-      require("karma-mocha-reporter"),
-      require("karma-phantomjs-launcher"),
-      require("karma-sourcemap-loader")
+      require('karma-webpack'),
+      require('karma-mocha'),
+      require('karma-mocha-reporter'),
+      require('karma-phantomjs-launcher'),
+      require('karma-sourcemap-loader')
     ],
 
     webpack: {

@@ -1,5 +1,5 @@
 import Express from 'express';
-import SSRCaching from "electrode-react-ssr-caching";
+import SSRCaching from 'electrode-react-ssr-caching';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import config from './config';
@@ -7,7 +7,7 @@ import favicon from 'serve-favicon';
 import compression from 'compression';
 import httpProxy from 'http-proxy';
 import path from 'path';
-import { createStore } from "redux";
+import { createStore } from 'redux';
 import Html from './helpers/Html';
 import PrettyError from 'pretty-error';
 import http from 'http';
@@ -33,11 +33,11 @@ app.use(Express.static(path.join(__dirname, '..', 'static')));
 
 // Proxy to API server
 app.use('/api', (req, res) => {
-  proxy.web(req, res, {target: targetUrl});
+  proxy.web(req, res, { target: targetUrl });
 });
 
 app.use('/ws', (req, res) => {
-  proxy.web(req, res, {target: targetUrl + '/ws'});
+  proxy.web(req, res, { target: targetUrl + '/ws' });
 });
 
 server.on('upgrade', (req, socket, head) => {
@@ -51,10 +51,10 @@ proxy.on('error', (error, req, res) => {
     console.error('proxy error', error);
   }
   if (!res.headersSent) {
-    res.writeHead(500, {'content-type': 'application/json'});
+    res.writeHead(500, { 'content-type': 'application/json' });
   }
 
-  json = {error: 'proxy_error', reason: error.message};
+  json = { error: 'proxy_error', reason: error.message };
   res.end(JSON.stringify(json));
 });
 
@@ -63,15 +63,15 @@ let store;
 function createReduxStore(req, match) {
   // this refs to engine
 
-  let initialState = {count : 100};
-  let rootReducer = (s, a) => s
+  const initialState = { count: 100 };
+  const rootReducer = (state, action) => state;
   store = createStore(rootReducer, initialState);
 
   return Promise.all([
-      // DO ASYNC THUNK ACTIONS HERE : store.dispatch(boostrapApp())
-      Promise.resolve({})
-    ]).then(() => {
-      return store;
+    // DO ASYNC THUNK ACTIONS HERE : store.dispatch(boostrapApp())
+    Promise.resolve({})
+  ]).then(() => {
+    return store;
   });
 }
 
@@ -85,7 +85,7 @@ app.use((req, res) => {
 
   function hydrateOnClient() {
     res.send('<!doctype html>\n' +
-      ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} store={store}/>));
+      ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} store={store} />));
   }
 
   if (__DISABLE_SSR__) {
@@ -93,26 +93,26 @@ app.use((req, res) => {
     return;
   }
 
-  let routes = getRoutes();
+  const routes = getRoutes();
 
-  const engine = new ReduxRouterEngine({ routes, createReduxStore});
+  const engine = new ReduxRouterEngine({ routes, createReduxStore });
 
   engine.render(req)
-    .then( (result) => {
-    let html = result.html;
-    res.send('<!doctype html>\n' +
-              ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} content={html} store={store}/>));
-  });
+    .then((result) => {
+      const html = result.html;
+      res.send('<!doctype html>\n' +
+        ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} content={html} store={store} />));
+    });
 });
 
 const cacheConfig = {
   components: {
     SSRCachingTemplateType: {
-      strategy: "template",
+      strategy: 'template',
       enable: true
     },
     SSRCachingSimpleType: {
-      strategy: "simple",
+      strategy: 'simple',
       enable: true
     }
   }

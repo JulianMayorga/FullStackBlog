@@ -1,5 +1,5 @@
 import React from 'react';
-import {AboveTheFoldOnlyServerRender} from "above-the-fold-only-server-render";
+import {AboveTheFoldOnlyServerRender} from 'above-the-fold-only-server-render';
 
 export class AboveFold extends React.Component {
 
@@ -7,7 +7,7 @@ export class AboveFold extends React.Component {
     return (
       <div>
         <h3>Above-the-fold-only-server-render: Increase Your Performance</h3>
-        <AboveTheFoldOnlyServerRender skip={true}>
+        <AboveTheFoldOnlyServerRender skip>
           <div className="renderMessage" style={{color: 'blue'}}>
             <p>This will skip server rendering if the 'AboveTheFoldOnlyServerRender'
               lines are present, or uncommented out.</p>
