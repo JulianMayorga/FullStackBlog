@@ -1,6 +1,6 @@
 {
-  "name": "react-redux-universal-hot-example",
-  "description": "Example of an isomorphic (universal) webapp using react redux and hot reloading",
+  "name": "full-stack-blog",
+  "description": "Universal webapp using react redux and hot reloading. Based on react-redux-universal-hot-example",
   "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
   "license": "MIT",
   "version": "0.9.0",
