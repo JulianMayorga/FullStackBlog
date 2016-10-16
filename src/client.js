@@ -5,10 +5,12 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import { browserHistory } from 'react-router';
 import getRoutes from './routes';
+
+import './base.scss';
 
 const dest = document.getElementById('content');
 

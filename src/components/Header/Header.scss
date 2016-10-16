@@ -1,0 +1,19 @@
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: cornflowerblue;
+    height: 3.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.Header__Title a {
+    color: white;
+    font-size: 2rem;
+}

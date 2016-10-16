@@ -1,0 +1,23 @@
+.PostItem {
+    display: flex;
+    margin: 3rem;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.PostItem__Title {
+    color: black;
+}
+
+.PostItem__Title:hover {
+    outline: 0;
+}
+
+.PostItem__Date {
+    color: dimgrey;
+}
+
+.PostItem__ReadMore {
+    margin: 15px;
+}

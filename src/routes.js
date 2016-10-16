@@ -1,21 +1,16 @@
 import React from 'react';
 import { Route, IndexRoute} from 'react-router';
-import { Home } from './components/home';
-import SSRCachingTemplateType from './components/SSRCachingTemplateType';
-import SSRCachingSimpleType from './components/SSRCachingSimpleType';
-import { AboveFold } from './components/above-the-fold';
-
+import Layout from './components/Layout';
+import PostsPage from './components/PostsPage';
+import PostPage from './components/PostPage';
+import NewPostPage from './components/NewPostPage';
 
 export default () => {
-  /**
-   * Please keep routes in alphabetical order
-   */
   return (
-    <Route path="/">
-      <IndexRoute component={Home} />
-      <Route path="above-the-fold" component={AboveFold} />
-      <Route path="ssrcachingtemplatetype" component={SSRCachingTemplateType} />
-      <Route path="ssrcachingsimpletype" component={SSRCachingSimpleType} />
+    <Route component={Layout} path="/">
+      <IndexRoute component={PostsPage} />
+      <Route path="/new-post" component={NewPostPage} />
+      <Route path="/posts/:postId" component={PostPage} />
     </Route>
   );
 };
