@@ -1,4 +1,5 @@
 import React from 'react';
+import { RouteTransition, presets } from 'react-router-transition';
 import { MegadraftEditor, editorStateFromRaw } from 'megadraft';
 
 import NewPostButton from '../NewPostButton';
@@ -31,6 +32,9 @@ const initial = {
 export default class PostPage extends React.Component {
   static propTypes = {
     post: React.PropTypes.object,
+    location: React.PropTypes.shape({
+      pathname: React.PropTypes.string
+    })
   }
   constructor(props) {
     super(props);
@@ -44,13 +48,15 @@ export default class PostPage extends React.Component {
   }
   render() {
     return (
-      <section className="PostPage">
+      <section>
         <NewPostButton />
-        <MegadraftEditor
-          readOnly
-          editorState={this.state.value}
-          onChange={this.onChange}
-          />
+        <RouteTransition className="PostPage" {...presets.pop} pathname={this.props.location.pathname}>
+          <MegadraftEditor
+            readOnly
+            editorState={this.state.value}
+            onChange={this.onChange}
+            />
+        </RouteTransition>
       </section>
     );
   }

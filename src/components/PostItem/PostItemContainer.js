@@ -11,6 +11,6 @@ const post = {
 
 export default class PostItemContainer extends React.Component {
   render() {
-    return <PostItem post={post} />;
+    return <PostItem post={post} {...this.props} />;
   }
 }

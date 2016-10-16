@@ -24,6 +24,6 @@ In hac habitasse platea dictumst. Aenean porttitor non ligula nec auctor. Praese
 
 export default class PostPageContainer extends React.Component {
   render() {
-    return <PostPage post={post} />;
+    return <PostPage post={post} {...this.props} />;
   }
 }
