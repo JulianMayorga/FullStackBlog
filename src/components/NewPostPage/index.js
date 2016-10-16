@@ -1,3 +1,3 @@
-import NewPostPage from './NewPostPage';
+import NewPostPageContainer from './NewPostPageContainer';
 
-export default NewPostPage;
+export default NewPostPageContainer;

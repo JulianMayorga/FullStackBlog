@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteTransition, presets } from 'react-router-transition';
-import { MegadraftEditor, editorStateFromRaw } from 'megadraft';
+import { MegadraftEditor, editorStateFromRaw, editorStateToJSON } from 'megadraft';
 
 import FixedButton from '../FixedButton';
 
@@ -31,9 +31,13 @@ const initial = {
 
 export default class NewPostPage extends React.Component {
   static propTypes = {
+    router: React.PropTypes.shape({
+      push: React.PropTypes.func.isRequired
+    }).isRequired,
     location: React.PropTypes.shape({
       pathname: React.PropTypes.string
-    })
+    }),
+    publish: React.PropTypes.func
   }
   constructor(props) {
     super(props);
@@ -41,14 +45,19 @@ export default class NewPostPage extends React.Component {
       value: editorStateFromRaw(initial)
     };
     this.onChange = this.onChange.bind(this);
+    this.publish = this.publish.bind(this);
   }
   onChange(value) {
     this.setState({ value });
   }
+  publish() {
+    this.props.publish(JSON.parse(editorStateToJSON(this.state.value)))
+      .then(() => this.props.router.push('/'));
+  }
   render() {
     return (
       <section className="NewPostPage">
-        <FixedButton className="btn NewPostPage__Button">{'{ Publish }'}</FixedButton>
+        <FixedButton className="btn NewPostPage__Button" onClick={this.publish}>{'{ Publish }'}</FixedButton>
         <RouteTransition {...presets.pop} pathname={this.props.location.pathname}>
           <MegadraftEditor
             editorState={this.state.value}

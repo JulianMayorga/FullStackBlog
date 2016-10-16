@@ -9,13 +9,13 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import { browserHistory } from 'react-router';
 import getRoutes from './routes';
+import reducers from './reducers';
 
 import './base.scss';
 
 const dest = document.getElementById('content');
 
-const rootReducer = (ss) => ss;
-const store = createStore(rootReducer, window.__data);
+const store = createStore(reducers, window.__data);
 
 ReactDOM.render(
   <Provider store={store} key="provider">

@@ -2,20 +2,21 @@ import Express from 'express';
 import SSRCaching from 'electrode-react-ssr-caching';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import config from './config';
+import PrettyError from 'pretty-error';
+import http from 'http';
 import favicon from 'serve-favicon';
 import compression from 'compression';
 import httpProxy from 'http-proxy';
-import path from 'path';
 import { createStore } from 'redux';
-import Html from './helpers/Html';
-import PrettyError from 'pretty-error';
-import http from 'http';
-import getRoutes from './routes';
-
+import path from 'path';
 import ReduxRouterEngine from 'electrode-redux-router-engine';
 import Promise from 'bluebird';
 
+import config from './config';
+import Html from './helpers/Html';
+import getRoutes from './routes';
+import { fetchPosts } from './actions';
+import reducers from './reducers';
 
 const targetUrl = 'http://' + config.apiHost + ':' + config.apiPort;
 const pretty = new PrettyError();
@@ -63,13 +64,12 @@ let store;
 function createReduxStore(req, match) {
   // this refs to engine
 
-  const initialState = { count: 100 };
-  const rootReducer = (state, action) => state;
-  store = createStore(rootReducer, initialState);
+  const initialState = {};
+  store = createStore(reducers, initialState);
 
   return Promise.all([
     // DO ASYNC THUNK ACTIONS HERE : store.dispatch(boostrapApp())
-    Promise.resolve({})
+    fetchPosts(store.dispatch)
   ]).then(() => {
     return store;
   });

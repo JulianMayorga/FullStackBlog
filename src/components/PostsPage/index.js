@@ -1,3 +1,3 @@
-import PostsPage from './PostsPage';
+import PostsPageContainer from './PostsPageContainer';
 
-export default PostsPage;
+export default PostsPageContainer;
