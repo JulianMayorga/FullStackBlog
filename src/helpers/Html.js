@@ -26,6 +26,7 @@ export default class Html extends Component {
     return (
       <html lang="en-us">
         <head>
+          <title>Full Stack Blog</title>
           {head.base.toComponent()}
           {head.title.toComponent()}
           {head.meta.toComponent()}
