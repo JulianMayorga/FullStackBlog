@@ -5,3 +5,7 @@ html {
 body {
   padding-top: 3.5rem;
 }
+
+[data-text="true"] {
+  font-family: monospace, "Helvetica Neue", Helvetica, sans-serif;
+}

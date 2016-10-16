@@ -48,7 +48,7 @@ export default class NewPostPage extends React.Component {
   render() {
     return (
       <section className="NewPostPage">
-        <FixedButton className="btn btn-success NewPostPage__Button">Publish</FixedButton>
+        <FixedButton className="btn NewPostPage__Button">{'{ Publish }'}</FixedButton>
         <RouteTransition {...presets.pop} pathname={this.props.location.pathname}>
           <MegadraftEditor
             editorState={this.state.value}

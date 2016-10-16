@@ -12,10 +12,10 @@ export default class Layout extends React.Component {
     return (
       <div>
         <FixedButton
-          className="btn btn-success PostsPage__Button"
+          className="btn"
           onClick={() => this.props.router.push('/new-post')}
           >
-          Write
+          {'{ Write }'}
         </FixedButton>
       </div>
     );

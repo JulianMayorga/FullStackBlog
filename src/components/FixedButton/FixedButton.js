@@ -1,17 +1,17 @@
 import React from 'react';
 
+import Button from '../Button';
+
 import './FixedButton.scss';
 
 export default class FixedButton extends React.Component {
   static propTypes = {
-    className: React.PropTypes.string,
-    children: React.PropTypes.any,
-    onClick: React.PropTypes.func
+    children: React.PropTypes.any
   }
   render() {
     return (
       <div className="FixedButton">
-        <button onClick={this.props.onClick} className={this.props.className}>{this.props.children}</button>
+        <Button {...this.props}>{this.props.children}</Button>
       </div>
     );
   }

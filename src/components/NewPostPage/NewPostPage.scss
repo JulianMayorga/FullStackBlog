@@ -3,7 +3,15 @@
 }
 
 .NewPostPage__Button {
+  color: white;
+  background-color: black;
   align-self: flex-end;
+}
+
+.NewPostPage__Button:hover {
+  color: black;
+  background-color: white;
+  border-color: black;
 }
 
 .NewPostPage .megadraft .sidebar {
