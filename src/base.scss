@@ -3,9 +3,14 @@ html {
 }
 
 body {
-  padding-top: 3.5rem;
+  padding-top: 5.5rem;
 }
 
 [data-text="true"] {
   font-family: monospace, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.megadraft-editor h2:first-child {
+  font-size: 3.5rem;
+  line-height: 4rem;
 }
