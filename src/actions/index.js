@@ -26,7 +26,7 @@ export const fetchPosts = dispatch => {
   dispatch({
     type: FETCH_POSTS
   });
-  return axios(`http://full-stack-blog-api.herokuapp.com/posts`) // eslint-disable-line
+  return axios(`https://full-stack-blog-api.herokuapp.com/posts`) // eslint-disable-line
     .then(res => dispatch(fetchPostsSuccess(res)))
     .catch(err => dispatch(fetchPostsFailure(err)));
 };
@@ -50,7 +50,7 @@ export const createPost = post => dispatch => {
     type: CREATE_POST,
     post
   });
-  return axios.post(`http://full-stack-blog-api.herokuapp.com/posts`, post) // eslint-disable-line
+  return axios.post(`https://full-stack-blog-api.herokuapp.com/posts`, post) // eslint-disable-line
     .then(res => dispatch(createPostSuccess(res)))
     .catch(err => dispatch(createPostFailure(err)));
 };
