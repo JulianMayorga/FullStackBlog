@@ -10,6 +10,5 @@ const environment = {
 module.exports = Object.assign({
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT,
-  dbHost: process.env.APIHOST || 'localhost',
-  dbPort: process.env.DBPORT,
+  dbUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017'
 }, environment);

@@ -10,7 +10,7 @@ const postsApp = require('./posts');
 
 const app = express();
 mongoose.Promise = Promise;
-mongoose.connect(`mongodb://${config.dbHost}:${config.dbPort}/full-stack-blog`);
+mongoose.connect(`${config.dbUrl}/full-stack-blog`);
 const db = mongoose.connection;
 
 app.use(cors());
