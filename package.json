@@ -25,8 +25,8 @@
   "main": "bin/server.js",
   "scripts": {
     "start": "concurrent --kill-others \"npm run start-prod\"",
-    "start-prod": "NODE_PATH=\"./src\" NODE_ENV=production APIPORT=3030 PORT=8080 node bin/server.js",
-    "start-prod-api": "NODE_PATH=\"./api\" NODE_ENV=production APIPORT=3030 DBPORT=27017 node bin/api.js",
+    "start-prod": "node bin/server.js",
+    "start-prod-api": "node bin/api.js",
     "build": "NODE_ENV=production webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
     "postinstall": "npm run build",
     "lint": "eslint -c .eslintrc src api",
