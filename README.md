@@ -1,6 +1,6 @@
 # Full Stack Blog
 
-Blog implemented using Universal React techniques.
+Blog implemented using Universal React techniques. Check it out live at [https://full-stack-blog.herokuapp.com/](https://full-stack-blog.herokuapp.com/)
 
 * Server side rendering
 * Redux
